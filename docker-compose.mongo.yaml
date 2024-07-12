@@ -1,0 +1,19 @@
+# docker compose -f docker-compose.mongo.yaml up
+# docker exec -it <container_mongo> mongosh -u root -p example
+# show dbs
+# use mydatabase
+# show collections
+# db.users.find().pretty()
+
+version: "3.9"
+
+services:
+
+  mongodb:
+    image: mongo:7.0.12
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    ports:
+      - 27017:27017
